@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 public class Usuario {
 
@@ -38,7 +40,7 @@ public class Usuario {
 
 	public Usuario(@NotBlank String email, @NotBlank String senha) {
 		this.email = email;
-		this.senha = senha;
+		this.senha = new BCryptPasswordEncoder().encode(senha);
 	}
 
 }
