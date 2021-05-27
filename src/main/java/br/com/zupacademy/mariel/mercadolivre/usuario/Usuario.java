@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -24,6 +25,7 @@ public class Usuario {
 	private String email;
 
 	@NotBlank
+	@Length(min = 6)
 	@Column(nullable = false)
 	private String senha;
 
